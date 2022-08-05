@@ -1,10 +1,14 @@
 class Solution {
     public int[] shuffle(int[] nums, int n) {
-        int[] arr = new int[2*n];
-        for(int i=0, j=n, idx=0; idx<2*n; i++, j++) {
-            arr[idx++] = nums[i];
-            arr[idx++] = nums[j];
+        boolean flag= true;
+        int[] res = new int[2*n];
+        for(int i=0,j=0;i<nums.length;i++){
+            if(flag) 
+                res[i]=nums[j];
+            if(!flag) 
+                res[i]=nums[(n)+j++];
+            flag = !flag;
         }
-        return arr;
+        return res;
     }
 }
